@@ -26,7 +26,7 @@ SECRET_KEY = 'nlhe1++9i&@!_n7^ht34q5fm7dqv7h3v(_ia-%tn3kppw&qa@*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','https://donateplasma1.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1','donateplasma1.herokuapp.com']
 
 # Application definition
 
