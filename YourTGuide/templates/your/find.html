@@ -1,0 +1,24 @@
+{% extends "your/layout.html" %}
+{% load static %}
+{% block body %}
+<style type="text/css">
+	li
+	{
+		font-size: 17px;
+	}
+</style>
+<h2>THESE PEOPLE ARE WILLING TO DONATE PLASMA IN YOUR DISTRICT, TRY CONTACTING THEM, IF YOUR BLOOD GROUP MATCHES:-</h2>
+<ul>
+{% for f in fg %}
+<li>
+NAME : {{ f.name }}<br>
+CONTACT : {{ f.mobile }}<br>
+BLOOD GROUP : {{ f.group }}<br>
+DIAGNOSED WITH COVID-19 : {{ f.diag }}<br>
+<p>-----------------</p>
+</li>
+{% endfor %}</ul>
+<h3>COULD NOT FIND YOUR BLOOD GROUP? YOU CAN MAKE REQUEST HERE-> &nbsp &nbsp<a href="{% url 'ffo' %}" class="btn btn-success">MAKE A REQUEST</a></h3>
+
+<a href="{% url 'search' %}" class="btn btn-primary">BACK</a>
+{% endblock %}

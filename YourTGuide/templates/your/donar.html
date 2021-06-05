@@ -1,0 +1,61 @@
+{% extends "your/layout.html" %}
+{% load static %}
+{% block body %}
+<style type="text/css">
+    .form-control
+    {
+        width: 100%;
+    }
+
+</style>
+
+    <form action="{% url 'sub' %}" method="post">
+      <h2>FILL UP YOUR DETAILS:-</h2><br>
+      <div class="container">
+        {% csrf_token %}
+<label for="district">SELECT YOUR DISTRICT</label>
+
+<select name="district" id="district">
+  <option value="Anantapur">Anantapur</option>
+  <option value="Chittoor">Chittoor</option>
+  <option value="East Godavari">East Godavari</option>
+  <option value="Guntur">Guntur</option>
+  <option value="YSR Kadapa">YSR Kadapa</option>
+  <option value="Krishna">Krishna</option>
+  <option value="Kurnool">Kurnool</option>
+  <option value="Nellore">Nellore</option>
+  <option value="Prakasam">Prakasam</option>
+  <option value="Srikakulam">Srikakulam</option>
+  <option value="Vishakapatnam">Vishakapatnam</option>
+  <option value="Vizianagaram">Vizianagaram</option>
+  <option value="West Godavri">West Godavari</option>
+</select><br><br>
+<label for="group">SELECT YOUR BLOOD GROUP</label>
+
+<select name="group" id="group">
+   <option value="O+">O+</option>
+  <option value="O-">O-</option>
+  <option value="A+">A+</option>
+  <option value="A-">A-</option>
+  <option value="A1+">A1+</option>
+  <option value="A1-">A1-</option>
+  <option value="A1B+">A1B+</option>
+  <option value="A1B-">A1B-</option>
+  <option value="A2+">A2+</option>
+  <option value="A2-">A2-</option>
+  <option value="A2B+">A2B+</option>
+  <option value="AB+">AB+</option>
+  <option value="AB-">AB-</option>
+  <option value="B+">B+</option>
+  <option value="B-">B-</option>
+  <option value="INRA">INRA</option>
+</select><br><br>
+	<label>WERE YOU DIAGNOSED WITH COVID-19?</label>
+<select name="dg">
+	<option value="No">No</option>
+	<option value="Yes">Yes</option>
+</select><br>
+        <br><input class="btn btn-primary" type="submit" value="Submit"></div>
+   <br><h4 style="color: red";>NOTE:-KINDLY DELETE YOUR REQUEST,ONCE YOU HAVE DONATED.</h4>
+    </form>
+{% endblock %}

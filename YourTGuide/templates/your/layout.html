@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+    <meta name="author" content="Navs">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">  
+    <head>
+        <title>{% block title %}DonatePlasma+{% endblock %}</title>
+           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+           <link href="https://fonts.googleapis.com/css2?family=Kufam&display=swap" rel="stylesheet">
+
+<style type="text/css">
+	*
+	{
+		font-family: Kufam;
+		align-items: center;
+	}
+	body
+	{
+   
+
+	}
+
+#tab-btn1{
+	position: relative;
+	display: inline-block;
+	padding: 5px 13px;
+	border-radius: 20px;
+	color: black;
+	font-size: 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.5s;
+	letter-spacing: 2px;
+	
+}
+
+#tab-btn2{
+	position: relative;
+	display: inline-block;
+	padding: 5px 13px;
+    border-radius: 20px;
+	color: black;
+	font-size: 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.5s;
+	letter-spacing: 2px;
+
+
+}
+#tab-btn1:hover
+{
+	background: #03e9f4;
+	color: #050801;
+	box-shadow: 0 0 5px #03e9f4,
+	            0 0 25px #03e9f4,
+	            0 0 50px #03e9f4,
+	            0 0 200px #03e9f4;
+}
+
+#tab-btn1:nth-child(3)
+{
+	filter: hue-rotate(290deg);
+}
+#tab-btn2:nth-child(3)
+{
+	filter: hue-rotate(290deg);
+}
+#tab-btn2:hover
+{
+	background: #03e9f4;
+	color: #050801;
+	box-shadow: 0 0 5px #03e9f4,
+	            0 0 25px #03e9f4,
+	            0 0 50px #03e9f4,
+	            0 0 200px #03e9f4;
+}
+#aa
+{
+background-color: #83a4d4;
+
+
+
+
+
+}
+
+</style>      
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg" id="aa">
+            <a class="navbar-brand" href="#">DONATE PLASMA, SAVE A LIFE</a>
+          
+            <div class="huh">
+              <ul class="navbar-nav mr-auto">
+               
+                {% if user.is_authenticated %}
+                                  <li class="nav-item">
+                        <a class="nav-linkk" id="tab-btn2" href="{% url 'hlp' %}">Requests<span class="badge badge-light">{{ hy }}</span></a>
+                    </li>
+                 <li class="nav-item">
+                  <a class="nav-linkk" id="tab-btn2" href="{% url 'search' %}">Search for donars</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link" id="tab-btn2" href="{% url 'donate' %}">Donate Plasma</a>
+                </li>
+                 <li class="nav-item">
+                  <a class="nav-link" id="tab-btn2" href="{% url 'dels' %}">Delete my requests</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-linkk" id="tab-btn2" href="{% url 'info' %}">Info</a>
+                    </li>
+                <li class="nav-item">
+                        <a class="nav-link" id="tab-btn2" href="{% url 'logout' %}">Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-linkk" id="tab-btn1" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-linkk" id="tab-btn2" href="{% url 'register' %}">Register</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-linkk" id="tab-btn2" href="{% url 'info' %}">Info</a>
+                    </li>                 
+                {% endif %}
+              </ul>
+            </div>           
+          </nav>
+                  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+ <script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCjmitvk78oPAnvhaoYq4n7deXvMFft9NE",
+    authDomain: "donateplasma-fa3a7.firebaseapp.com",
+    databaseURL: "https://donateplasma-fa3a7.firebaseio.com",
+    projectId: "donateplasma-fa3a7",
+    storageBucket: "donateplasma-fa3a7.appspot.com",
+    messagingSenderId: "242478640005",
+    appId: "1:242478640005:web:64da9d8318b876171c72ec",
+    measurementId: "G-ZCRNXF39V2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+</script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="{% static 'push.min.js' %}"></script>
+<script src="{% static 'serviceWorker.min.js' %}"></script>
+        <div class="body">
+        	<br>
+            {% block body %}
+            {% endblock %}
+        </div>
+
+    </body>
+</html>

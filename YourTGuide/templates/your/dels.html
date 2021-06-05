@@ -1,0 +1,35 @@
+{% extends "your/layout.html" %}
+{% load static %}
+{% block body %}
+<style type="text/css">
+	li
+	{
+		font-size: 20px;
+	}
+</style>
+<h1>DELETE YOUR REQUESTS:</h1><br><br>
+<h2>DONOR REQUESTS:</h2><br>
+<ul>
+{% for f in q %}
+<li>
+NAME : {{ f.name }}<br>
+CONTACT : {{ f.mobile }}<br>
+BLOOD GROUP : {{ f.group }}<br>
+<a href="{% url 'del1' f.name %}" class="btn btn-danger">DELETE</a>
+
+</li>
+{% endfor %}</ul>
+<h2>RECIPIENT REQUESTS:</h2><br>
+<ul>
+{% for f in w %}
+<li>
+NAME : {{ f.name }}<br>
+CONTACT : {{ f.mobile }}<br>
+BLOOD GROUP : {{ f.group }}<br>
+<a href="{% url 'del2' f.name %}" class="btn btn-danger">DELETE</a>
+
+</li>
+{% endfor %}</ul>
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "your/layout.html" %}
+{% load static %}
+{% block body %}
+<style type="text/css">
+    .form-control
+    {
+        width: 60%;
+    }
+
+</style>
+<div class="container">
+<form action="{% url 'find'  %}" method="POST">
+<label for="district" style="font-size: 30px";>SELECT YOUR DISTRICT: </label>&nbsp
+
+<select name="dis" id="district1">
+  <option value="Anantapur">Anantapur</option>
+  <option value="Chittoor">Chittoor</option>
+  <option value="East Godavari">East Godavari</option>
+  <option value="Guntur">Guntur</option>
+  <option value="YSR Kadapa">YSR Kadapa</option>
+  <option value="Krishna">Krishna</option>
+  <option value="Kurnool">Kurnool</option>
+  <option value="Nellore">Nellore</option>
+  <option value="Prakasam">Prakasam</option>
+  <option value="Srikakulam">Srikakulam</option>
+  <option value="Vishakapatnam">Vishakapatnam</option>
+  <option value="Vizianagaram">Vizianagaram</option>
+  <option value="West Godavri">West Godavari</option>
+</select>	<br>
+<input type="submit" class="btn btn-primary" value="submit">
+</form></div>
+{% endblock %}

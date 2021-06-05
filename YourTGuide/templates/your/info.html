@@ -1,0 +1,22 @@
+{% extends "your/layout.html" %}
+{% load static %}
+{% block body %}
+
+<div class="container">
+	<h2>->WHAT IS PLASMA?</h2><br>
+	<h4>Plasma is the clear, straw-colored liquid portion of blood that remains after red blood cells, white blood cells, platelets and other cellular components are removed. It is the single largest component of human blood, comprising about 55 percent, and contains water, salts, enzymes, antibodies and other proteins.</h4><p>------------------------------------------</p>
+	<br>
+	<h2>->IS IT HEALTHY TO DONATE PLASMA?</h2><br>
+	<h4>Research shows that plasma donation is safe, and the National Institutes of Health (NIH) emphasize that there is no risk of getting the wrong blood back. Also, the FDA and other health authorities regulate the equipment and procedure of plasma donation.</h4><p>---------------------------------------------------</p>
+	<br>
+	<h2>->WHAT IS INVOLVED IN DONATING PLASMA?</h2>
+	<br>
+	<h4>As for whole blood donors, plasma donors are still required to complete the Donor Questionnaire,interview and haemoglobin (finger prick) test.Plasma donation takes approximately 45 minutes.Up to 800mL of plasma can be donated in one single plasma donation– which is greater than the amount of plasma donated in 2 whole blood donations.</h4>
+	<h2></h2>
+    {% if user.is_authenticated %}
+    <a href="{% url 'search' %}" class="btn btn-warning">Back</a>
+    {% else %}
+    <a href="{% url 'register' %}" class="btn btn-warning">Back</a>  
+    {% endif %}  
+</div>
+{% endblock %}

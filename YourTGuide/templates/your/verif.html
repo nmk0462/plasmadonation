@@ -1,0 +1,88 @@
+{% extends "your/layout.html" %}
+{% load static %}
+{% block body %}
+<style type="text/css">
+	#card-body{
+		position: absolute;
+		top: 77%;
+		left: 40%;
+	}
+    .form-control
+    {
+        width: 60%;
+    }
+
+
+</style>
+<script src="{% static 'your/Authentication.js' %}"></script>
+<h1 style="color: red";>{{ mess }}</h1>
+<h3>ENTER MOBILE NUMBER</h3>
+<form action="{% url 'next' %}" method="post">
+	<input type="text" name="aa" placeholder="10-DIGIT MOBILE NUMBER" id="number" class="form-control">
+	<div id="recaptcha-container"></div>
+	<button type="button" onclick="phoneAuth();">SEND CODE</button>
+	<div id="card-body"></div>
+</form><br>
+<h3>ENTER CODE</h3>
+<form>
+	<input type="text" id="verificationCode" placeholder="ENTER CODE" class="form-control">
+	<button type="button" onclick="codeverify()">VERIFY</button>
+	
+     
+</form>
+<script type="text/javascript">
+	window.onload=function () {
+  render();
+};
+function render() {
+    window.recaptchaVerifier=new firebase.auth.RecaptchaVerifier('recaptcha-container');
+    recaptchaVerifier.render();
+
+}
+function phoneAuth() {
+    //get the number
+    var numbe=document.getElementById('number').value;
+    var st="+91";
+    var number=st.concat(numbe);
+    fetch(`/chk/${number}`)
+    .then(response => response.json())
+    .then((result) => {
+    console.log(result);
+    if (result == "no") {
+  
+    //phone number authentication function of firebase
+    //it takes two parameter first one is number,,,second one is recaptcha
+    firebase.auth().signInWithPhoneNumber(number,window.recaptchaVerifier).then(function (confirmationResult) {
+        //s is in lowercase
+        window.confirmationResult=confirmationResult;
+        coderesult=confirmationResult;
+        console.log(coderesult);
+        alert("Message sent");
+    }).catch(function (error) {
+        alert(error.message);
+    });
+}
+else
+{
+	alert("Number already in use!!");
+}
+});
+}
+function codeverify() {
+    var code=document.getElementById('verificationCode').value;
+    coderesult.confirm(code).then(function (result) {
+        alert("Number verified")
+        var user=result.user;
+
+        cardbody = document.querySelector(`#card-body`);
+        cardbody.innerHTML = `<input class="btn btn-success" type="submit" value="Continue">`;
+        var user=result.user;
+        console.log(user);
+
+     }).catch(function (error) {
+        alert(error.message);
+    });
+}
+</script>
+
+{% endblock %}

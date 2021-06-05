@@ -1,0 +1,33 @@
+{% extends "your/layout.html" %}
+{% load static %}
+{% block body %}
+<style type="text/css">
+	#tab-btn21{
+	position: relative;
+	display: inline-block;
+	padding: 5px 13px;
+    border-radius: 20px;
+	color: black;
+	font-size: 17px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.5s;
+	letter-spacing: 2px;
+
+
+}
+#tab-btn21:hover
+{
+	background: #7fff00;
+	color: #050801;
+	box-shadow: 0 0 5px #03e9f4,
+	            0 0 25px #03e9f4,
+	            0 0 50px #03e9f4,
+	            0 0 200px #03e9f4;
+}
+</style>
+<h2 style="color: green";>{{ msg }}</h2>
+<h2>CHOOSE YOUR OPTION:-</h2><br><br>
+<div class="container">
+<a href="{% url 'donate' %}" id="tab-btn21"><img src="{% static 'your/h4.png' %}" height="90%" width="90%"><br><br>Willing to donate Plasma?</a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp <a href="{% url 'search' %}" id="tab-btn21"><img src="{% static 'your/h5.png' %}" height="90%" width="90%"><br><br>Looking for a donor?</a></div>
+{% endblock %}

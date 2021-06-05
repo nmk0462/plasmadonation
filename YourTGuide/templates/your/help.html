@@ -1,0 +1,23 @@
+{% extends "your/layout.html" %}
+{% load static %}
+{% block body %}
+<style type="text/css">
+	li
+	{
+		font-size: 20px;
+	}
+</style>
+<h1 style="color: red">URGENT!!!<img src="{% static 'your/h2.png' %}" id="ko" height="11%" width="11%"></h1>
+<h2>PLEASE HELP THE BELOW PEOPLE BY DONATING PLASMA:</h2>
+<ul>
+{% for f in gg %}
+<li>
+NAME : {{ f.name }}<br>
+CONTACT : {{ f.mobile }}<br>
+BLOOD GROUP : {{ f.group }}<br>
+DISTRICT : {{ f.distr }}<br>
+<p>------------</p>
+</li>
+{% endfor %}</ul>
+<a href="donate" class="btn btn-primary">BACK</a>
+{% endblock %}
